@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration des thèmes de couleur
     const colorThemes = {
         default: {
-            background: 'url("/assets/fond1.png")',
+            background: 'url("assets/fond1.png")',
             textColor: '#aaa37f',
             mouseIcon: 'assets/icone.png'
         },
