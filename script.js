@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
         default: {
             background: 'url("/assets/fond1.png")',
             textColor: '#aaa37f',
-            mouseIcon: '/assets/icone.png'
+            mouseIcon: 'assets/icone.png'
         },
         color1: {
-            background: 'url("/assets/fond2.png")',
+            background: 'url("assets/fond2.png")',
             textColor: '#E8A8A0',
-            mouseIcon: '/assets/icon2.png'
+            mouseIcon: 'assets/icon2.png'
         },
         color2: {
-            background: 'url("/assets/fond3.png")',
+            background: 'url("assets/fond3.png")',
             textColor: '#B5B2EA',
-            mouseIcon: '/assets/icon3.png'
+            mouseIcon: 'assets/icon3.png'
         }
     };
     
