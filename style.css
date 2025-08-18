@@ -137,12 +137,12 @@ header {
     top: 2.5rem;
     left: 2rem;
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     z-index: 10;
     background: rgba(0, 0, 0, 0.1);
-    padding: 1.2rem;
-    border-radius: 2.5rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    border-radius: 3rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.15),
@@ -150,8 +150,8 @@ header {
 }
 
 .color-btn {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.8);
     cursor: pointer;
@@ -202,13 +202,13 @@ header {
     background: rgba(255, 255, 255, 0.95);
     border: 3px solid var(--clr-primary);
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--clr-primary);
     transition: var(--transition-fast);
     box-shadow: 
@@ -225,14 +225,14 @@ header {
 
 .menu-items {
     position: absolute;
-    top: 4.5rem;
+    top: 5.5rem;
     right: -1rem;
     background: rgba(255, 255, 255, 0.95);
     border: 3px solid var(--clr-accent);
-    border-radius: 1.5rem;
-    padding: 1.2rem;
+    border-radius: 2rem;
+    padding: 1.5rem;
     list-style: none;
-    min-width: 180px;
+    min-width: 220px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -260,13 +260,13 @@ header {
 
 .menu-link {
     display: block;
-    padding: 0.8rem 1.2rem;
+    padding: 1rem 1.5rem;
     color: var(--clr-text);
     text-decoration: none;
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem;
-    border-radius: 1rem;
+    font-size: 1.3rem;
+    border-radius: 1.2rem;
     transition: var(--transition-fast);
     position: relative;
     --hover-color: var(--clr-accent);
@@ -2761,6 +2761,470 @@ body.modal-open {
     }
 }
 
+/* Écrans 2K et ultra-wide (1920px à 2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+    .hero {
+        max-width: 1300px;
+        padding: 6.5rem 0;
+    }
+    
+    .hero__name {
+        font-size: 95px;
+    }
+    
+    .hero__intro {
+        font-size: 29px;
+    }
+    
+    .hero__role {
+        font-size: 29px;
+        padding: 2.8rem;
+    }
+    
+    .projects-layout {
+        max-width: 1700px;
+        gap: 3.5rem;
+    }
+    
+    .projects-left {
+        width: 48%;
+        padding: 0 1.5rem;
+        padding-top: 0.3rem;
+        gap: 4.5rem;
+    }
+    
+    .projects-cover {
+        width: 52%;
+        padding: 1.5rem;
+    }
+    
+    .projects-header {
+        padding: 1rem 1rem;
+        margin-bottom: 0;
+        min-height: auto;
+    }
+    
+    .projects__intro {
+        gap: 3.5rem;
+    }
+    
+    .projects__intro h2 {
+        margin-bottom: 2.5rem;
+        line-height: 1.4;
+    }
+    
+    .projects__intro p {
+        margin-bottom: 3rem;
+        line-height: 1.9;
+    }
+    
+    .modal-content {
+        max-width: 1700px;
+    }
+    
+    .about__content {
+        max-width: 1500px;
+        gap: 4.5rem;
+    }
+    
+    .about__text {
+        font-size: 27px;
+        line-height: 2.3;
+    }
+    
+    /* Ajustements contact pour écrans 2K */
+    #contact {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+        padding-top: 1.5rem;
+        position: relative;
+    }
+    
+    .contact-container {
+        max-width: 900px;
+        margin: 0 auto;
+        gap: 2.5rem;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .contact-header {
+        position: absolute;
+        top: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+    
+    .contact-header {
+        padding: 3rem 2.5rem;
+        margin-bottom: 0;
+    }
+    
+    .contact-intro {
+        font-size: 2.6rem;
+    }
+    
+    .contact__cta {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .button {
+        padding: 2rem 4.5rem;
+        font-size: 1.9rem;
+    }
+    
+    .social-section {
+        bottom: 2.5rem;
+        left: 2.5rem;
+    }
+}
+
+/* Écrans ultra-larges (2560px et plus) */
+@media (min-width: 2560px) {
+    .hero {
+        max-width: 1600px;
+        padding: 8rem 0;
+    }
+    
+    .hero__name {
+        font-size: 120px;
+    }
+    
+    .hero__intro {
+        font-size: 36px;
+    }
+    
+    .hero__role {
+        font-size: 36px;
+        padding: 3.5rem;
+    }
+    
+    .role-icon {
+        width: 50px !important;
+        height: 50px !important;
+        max-width: 50px !important;
+        max-height: 50px !important;
+    }
+    
+    .projects-layout {
+        max-width: 2000px;
+        gap: 5rem;
+    }
+    
+    .projects-left {
+        width: 45%;
+        padding: 0 2rem;
+        padding-top: 0.5rem;
+        gap: 5rem;
+    }
+    
+    .projects-cover {
+        width: 55%;
+        padding: 2rem;
+    }
+    
+    .projects-header {
+        padding: 1.5rem 1.5rem;
+        margin-bottom: 0;
+        min-height: auto;
+    }
+    
+    .projects-title {
+        font-size: 48px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .projects__intro {
+        gap: 4rem;
+    }
+    
+    .projects__intro h2 {
+        font-size: 36px;
+        margin-bottom: 3rem;
+        line-height: 1.4;
+    }
+    
+    .projects__intro p {
+        font-size: 24px;
+        margin-bottom: 3.5rem;
+        line-height: 2;
+    }
+    
+    .modal-content {
+        max-width: 2000px;
+        border-radius: 40px;
+        border-width: 4px;
+    }
+    
+    .modal-close {
+        width: 60px;
+        height: 60px;
+        font-size: 48px;
+        top: 35px;
+        right: 40px;
+    }
+    
+    .project-header h2 {
+        font-size: 3.5rem;
+    }
+    
+    .project-category {
+        font-size: 1.6rem;
+        padding: 1rem 2.5rem;
+    }
+    
+    .project-description h3 {
+        font-size: 2.4rem;
+    }
+    
+    .project-description h4 {
+        font-size: 1.6rem;
+    }
+    
+    .project-description p {
+        font-size: 1.3rem;
+    }
+    
+    .project-description ul {
+        font-size: 1.4rem;
+    }
+    
+    .about__content {
+        max-width: 1800px;
+        gap: 6rem;
+    }
+    
+    .about__text {
+        font-size: 32px;
+        line-height: 2.4;
+    }
+    
+    .about__text p {
+        font-size: 32px;
+        margin-bottom: 4rem;
+    }
+    
+    .about__portrait {
+        max-width: 600px;
+    }
+    
+    .about__noeud {
+        width: 1000px;
+    }
+    
+    .contact-container {
+        max-width: 1000px;
+    }
+    
+    .contact-intro {
+        font-size: 3rem;
+    }
+    
+    .button {
+        padding: 2rem 4.5rem;
+        font-size: 2rem;
+    }
+    
+    .button-icon {
+        font-size: 2.5rem;
+    }
+    
+    .social-section {
+        max-width: 500px;
+        padding: 2rem 2.5rem;
+    }
+    
+    .social-text {
+        font-size: 2rem;
+    }
+    
+    .social a {
+        width: 85px;
+        height: 85px;
+        border-radius: 25px;
+    }
+    
+    .social a img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .sticker-coeur {
+        width: 180px;
+        top: 150px;
+        left: 80px;
+    }
+    
+    .sticker-cachet {
+        width: 140px;
+        top: 80px;
+        right: 150px;
+    }
+    
+    .sticker-lettre {
+        width: 250px;
+        bottom: 280px;
+        right: 150px;
+    }
+    
+    .signature-absolute {
+        width: 250px;
+        right: 4rem;
+        bottom: 4rem;
+    }
+    
+    /* Ajuster les espacements généraux */
+    section,
+    header,
+    footer {
+        padding: 6rem 2rem;
+    }
+    
+    /* Header spécifique */
+    header {
+        padding: 6rem 2rem;
+    }
+    
+    /* Section projets */
+    #projects {
+        padding: 0;
+    }
+    
+    /* Section about */
+    #about {
+        padding: 4rem 0;
+    }
+    
+    /* Section contact */
+    #contact {
+        padding: 0 3rem;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
+        position: relative;
+    }
+    
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 3rem;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .contact-header {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+    
+    .contact-header {
+        padding: 4rem 3rem;
+        margin-bottom: 0;
+    }
+    
+    .contact-intro {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+    
+    .contact__cta {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .button {
+        padding: 2.5rem 5rem;
+        font-size: 2.2rem;
+        border-radius: 40px;
+    }
+    
+    .button-icon {
+        font-size: 2.8rem;
+    }
+    
+    .social-section {
+        max-width: 600px;
+        bottom: 3rem;
+        left: 3rem;
+    }
+    
+    .social-text {
+        font-size: 2.2rem;
+    }
+    
+    .social a {
+        width: 90px;
+        height: 90px;
+        border-radius: 28px;
+    }
+    
+    .social a img {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .sticker-coeur {
+        width: 200px;
+        top: 120px;
+        left: 100px;
+    }
+    
+    .sticker-cachet {
+        width: 160px;
+        top: 60px;
+        right: 180px;
+    }
+    
+    .sticker-lettre {
+        width: 280px;
+        bottom: 300px;
+        right: 180px;
+    }
+    
+    .signature-absolute {
+        width: 280px;
+        right: 5rem;
+        bottom: 5rem;
+    }
+    
+    /* Ajuster les espacements généraux */
+    section,
+    header,
+    footer {
+        padding: 6rem 2rem;
+    }
+    
+    /* Header spécifique */
+    header {
+        padding: 6rem 2rem;
+    }
+    
+    /* Section projets */
+    #projects {
+        padding: 0;
+    }
+    
+    /* Section about */
+    #about {
+        padding: 4rem 0;
+    }
+}
+
 /* Grands écrans (laptops, desktops) */
 @media (min-width: 1200px) and (max-width: 1919px) {
     .hero {
@@ -2980,49 +3444,6 @@ body.modal-open {
         right: 0.5rem;
         bottom: -1.5rem;
         width: 70px;
-    }
-}
-
-/* Écrans ultra-larges (ultra-wide, multi-monitor) */
-@media (min-width: 2560px) {
-    .hero {
-        max-width: 1400px;
-        padding: 7rem 0;
-    }
-    
-    .hero__name {
-        font-size: 100px;
-    }
-    
-    .hero__intro {
-        font-size: 30px;
-    }
-    
-    .hero__role {
-        font-size: 30px;
-        padding: 3rem;
-    }
-    
-    .projects-layout {
-        max-width: 1800px;
-        gap: 4rem;
-    }
-    
-    .modal-content {
-        max-width: 1800px;
-    }
-    
-    .about__content {
-        max-width: 1600px;
-        gap: 5rem;
-    }
-    
-    .about__text {
-        font-size: 28px;
-    }
-    
-    .contact-container {
-        max-width: 900px;
     }
 }
 
