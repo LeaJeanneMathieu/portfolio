@@ -1,0 +1,15 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Scallop shape -->
+  <g>
+    <circle cx="60" cy="60" r="48" fill="#F7F5F2"/>
+    <g>
+      <circle cx="60" cy="12" r="8" fill="#F7F5F2" stroke="#E9AFA3" stroke-width="2"/>
+      <circle cx="108" cy="60" r="8" fill="#F7F5F2" stroke="#E9AFA3" stroke-width="2"/>
+      <circle cx="60" cy="108" r="8" fill="#F7F5F2" stroke="#E9AFA3" stroke-width="2"/>
+      <circle cx="12" cy="60" r="8" fill="#F7F5F2" stroke="#E9AFA3" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- Envelope -->
+  <rect x="38" y="54" width="44" height="28" rx="6" fill="#fff" stroke="#E9AFA3" stroke-width="2"/>
+  <polyline points="38,54 60,72 82,54" fill="none" stroke="#E9AFA3" stroke-width="2"/>
+</svg> 

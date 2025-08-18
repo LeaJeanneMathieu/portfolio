@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio – Léa Mathieu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Lien d’évitement pour l’accessibilité -->
+
+
+    <!-- En‑tête principal -->
+    <header class="banner">
+        <div class="color-picker">
+            <button class="color-btn" data-color="default" aria-label="Couleur de fond par défaut"></button>
+            <button class="color-btn" data-color="color1" aria-label="Première couleur de fond"></button>
+            <button class="color-btn" data-color="color2" aria-label="Deuxième couleur de fond"></button>
+        </div>
+        
+        <nav class="header-menu">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span class="menu-icon">☰</span>
+            </button>
+            <ul class="menu-items">
+                <li><a href="#projects" class="menu-link">Projets</a></li>
+                <li><a href="#about" class="menu-link">À propos</a></li>
+                <li><a href="#contact" class="menu-link">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero">
+            <p class="hero__intro">Ce portfolio appartient à</p>
+            <h1 class="hero__name">Léa Mathieu</h1>
+            <p class="hero__role">
+                <img src="/assets/icone.png" alt="Icône UX" class="role-icon">
+                <span class="role-text">Freelance <strong>UX Designer</strong> et <strong>développeuse web&nbsp;front‑end</strong></span>
+            </p>
+        </div>
+        <nav class="hero__nav-bottom">
+            <ul class="hero__nav">
+                <li>
+                    <a href="#projects" class="hero__cta">
+                        <svg class="hero__cta-arrow" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                            <path d="M20 12v16M12 24l8 8 8-8" stroke="currentColor" stroke-width="3" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Découvre mes projets
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main id="main">
+        <!-- Section : Projets -->
+        <section id="projects">
+            <div class="projects-layout">
+                <div class="projects-left">
+                    <div class="projects-header">
+
+                        <h2 class="projects-title">Mes projets</h2>
+                    </div>
+                    <div class="projects__intro">
+                        <h2>Des interfaces pensées avec soin pour une expérience fluide et intuitive</h2>
+                        <p>Voici une sélection de <strong>projets créatifs</strong> imaginés autour de
+                            <strong>thématiques sensibles</strong> et actuelles.</p>
+                        <p>Chaque interface a été pensée pour allier <strong>esthétique, accessibilité et cohérence
+                                narrative</strong> avec une attention particulière portée à l’<strong>harmonie des
+                                formes</strong>, des <strong>couleurs</strong> et de l’<strong>expérience
+                                utilisateur</strong>.</p>
+                    </div>
+                </div>
+                <div class="projects-cover">
+                    <figure class="project__figure" data-project="1">
+                        <img src="/assets/projet1.png" alt="Mock‑up du site UrbanHeaven">
+                    </figure>
+                    <figure class="project__figure" data-project="2">
+                        <img src="/assets/projet2.png" alt="Mock‑up du site Luxuria">
+                    </figure>
+                    <figure class="project__figure" data-project="3">
+                        <img src="/assets/projet3.png" alt="Mock‑up du site NovaTech">
+                    </figure>
+                    <figure class="project__figure" data-project="4">
+                        <img src="/assets/projet4.png" alt="Mock‑up du site GreenWave">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modales des projets -->
+        <div id="project-modal" class="project-modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Fermer la modale">&times;</button>
+                
+                <!-- Projet 1: UrbanHeaven -->
+                <div class="project-details" data-project="1">
+                    <div class="project-header">
+                        <h2>UrbanHeaven</h2>
+                        <p class="project-category">Design d'interface • UX/UI</p>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-description">
+                            <h3>Description du projet</h3>
+                            <p>UrbanHeaven est une plateforme de réservation d'espaces de coworking urbains. Le projet vise à créer une expérience utilisateur fluide et intuitive pour les professionnels nomades cherchant des espaces de travail flexibles en ville.</p>
+                            
+                            <h4>Objectifs du projet</h4>
+                            <ul>
+                                <li>Simplifier la recherche et la réservation d'espaces de coworking</li>
+                                <li>Créer une interface moderne et accessible</li>
+                                <li>Optimiser le parcours utilisateur de la découverte à la réservation</li>
+                            </ul>
+                            
+                            <h4>Technologies utilisées</h4>
+                            <p>Figma, Adobe XD, Prototypage interactif</p>
+                            
+                            <div class="project-links">
+                                <a href="https://urban-heaven-psi.vercel.app/" target="_blank" class="project-link live">
+                                    <span class="link-icon">🌐</span>
+                                    Voir le site live
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-maquette">
+                            <h3>Maquette complète</h3>
+                            <img src="/assets/maquette2.png" alt="Maquette complète UrbanHeaven" class="maquette-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2: GreenWave -->
+                <div class="project-details" data-project="2">
+                    <div class="project-header">
+                        <h2>GreenWave</h2>
+                        <p class="project-category">Design durable • Écologie</p>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-description">
+                            <h3>Description du projet</h3>
+                            <p>GreenWave est une initiative écologique visant à sensibiliser et mobiliser les citoyens autour des enjeux environnementaux. Le projet combine design d'interface et engagement communautaire pour créer un impact positif sur l'environnement.</p>
+                            
+                            <h4>Objectifs du projet</h4>
+                            <ul>
+                                <li>Créer une plateforme engageante pour l'action écologique</li>
+                                <li>Développer une interface claire et accessible à tous</li>
+                                <li>Encourager la participation citoyenne et le partage d'initiatives</li>
+                            </ul>
+                            
+                            <h4>Technologies utilisées</h4>
+                            <p>Figma, Adobe XD, Design thinking, Recherche utilisateur</p>
+                        </div>
+                        
+                        <div class="project-maquette">
+                            <h3>Maquette complète</h3>
+                            <img src="/assets/maquette1.jpg" alt="Maquette complète GreenWave" class="maquette-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: Luxuria Event -->
+                <div class="project-details" data-project="3">
+                    <div class="project-header">
+                        <h2>Luxuria Event</h2>
+                        <p class="project-category">Design de marque • Événementiel</p>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-description">
+                            <h3>Description du projet</h3>
+                            <p>Luxuria Event est une marque de luxe proposant des accessoires et bijoux haut de gamme. Le projet consiste à créer une identité visuelle sophistiquée et une plateforme e-commerce élégante qui reflète le prestige de la marque.</p>
+                            
+                            <h4>Objectifs du projet</h4>
+                            <ul>
+                                <li>Développer une identité visuelle distinctive et luxueuse</li>
+                                <li>Créer une expérience d'achat premium et intuitive</li>
+                                <li>Établir une cohérence visuelle sur tous les supports</li>
+                            </ul>
+                            
+                            <h4>Technologies utilisées</h4>
+                            <p>Figma, Adobe Creative Suite, Prototypage mobile-first</p>
+                        </div>
+                        
+                        <div class="project-maquette">
+                            <h3>Maquette complète</h3>
+                            <img src="/assets/maquette3.png" alt="Maquette complète Luxuria Event" class="maquette-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4: NovaTech -->
+                <div class="project-details" data-project="4">
+                    <div class="project-header">
+                        <h2>NovaTech</h2>
+                        <p class="project-category">Application mobile • Tech</p>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-description">
+                            <h3>Description du projet</h3>
+                            <p>NovaTech est une application mobile innovante qui connecte les passionnés de technologie. L'objectif est de créer une plateforme communautaire intuitive pour partager des découvertes tech et collaborer sur des projets innovants.</p>
+                            
+                            <h4>Objectifs du projet</h4>
+                            <ul>
+                                <li>Concevoir une interface mobile intuitive et engageante</li>
+                                <li>Faciliter les interactions sociales et la collaboration</li>
+                                <li>Créer une expérience utilisateur fluide sur tous les appareils</li>
+                            </ul>
+                            
+                            <h4>Technologies utilisées</h4>
+                            <p>Figma, Sketch, Prototypage mobile, Tests utilisateurs</p>
+                        </div>
+                        
+                        <div class="project-maquette">
+                            <h3>Maquette complète</h3>
+                            <img src="/assets/maquette4.png" alt="Maquette complète NovaTech" class="maquette-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section : À propos -->
+        <section id="about" aria-labelledby="about-title">
+            <div class="about__content">
+                <div class="about__text">
+                    <p>
+                        Je m'appelle <strong class="accent-strong">Léa Mathieu</strong>, je suis
+                        <span class="handdrawn-uxui"><strong class="accent-strong">UX / UI designer</strong></span>
+                        mais aussi <strong>développeuse web&nbsp;front‑end</strong> junior.
+                    </p>
+                    <p>Mon approche mêle <strong>sensibilité artistique</strong>, <strong>rigueur technique</strong> et <strong>amour du détail</strong>. J’aime créer des
+                        interfaces à la fois <strong>harmonieuses</strong> et <strong>intuitives</strong>, où chaque élément a du sens et raconte une
+                        histoire.</p>
+                    <p>Mon univers est fait de <strong>couleurs douces</strong>, de <strong>textures inspirantes</strong> et de typographies soigneusement
+                        choisies. J’accorde une grande importance à <strong>l'expérience utilisateur</strong>, au <strong>rythme visuel</strong> et à la
+                        <strong>cohérence graphique</strong> dans chaque projet.</p>
+                    <img class="about__noeud" src="/assets/noeud.png" alt="">
+                </div>
+
+                <div class="about__portrait">
+                    <img src="/assets/photoprofil.png" alt="Portrait de Léa Mathieu">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section : Contact -->
+        <section id="contact" aria-labelledby="contact-title">
+            <!-- Stickers décoratifs -->
+            <img src="/assets/sr.png" alt="coeur" class="sticker-coeur">
+            <img src="/assets/sticker7.png" alt="cachet" class="sticker-cachet">
+            <img src="/assets/sticker10.png" alt="lettre" class="sticker-lettre">
+            
+            <!-- Contenu principal centré -->
+            <div class="contact-container">
+                <!-- Introduction -->
+                <div class="contact-header">
+                    <p class="contact-intro">
+                        Tu as une question, un projet en tête ou<br>
+                        simplement envie d'échanger ?
+                    </p>
+                </div>
+                
+                <!-- Bouton CTA principal -->
+                <div class="contact__cta">
+                    <img src="/assets/dechirer.png" alt="" class="cta-bg-img" aria-hidden="true">
+                    <a class="button" href="mailto:lea.mathieu@example.com">
+                        <span class="button-icon">&#9993;</span>
+                        M'écrire un petit mot
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Section réseaux sociaux en bas à gauche -->
+            <div class="social-section">
+                <div class="social-intro">
+                    <img src="/assets/sticker8.png" alt="" class="sticker-souris">
+                    <p class="social-text">Tu peux aussi me retrouver ici :</p>
+                </div>
+                <div class="social">
+                    <a href="https://www.instagram.com/tonprofil" target="_blank" aria-label="Instagram">
+                        <img src="/assets/instagram-sticker.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/tonprofil" target="_blank" aria-label="LinkedIn">
+                        <img src="/assets/linkedin-sticker.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://dribbble.com/tonprofil" target="_blank" aria-label="Dribbble">
+                        <img src="/assets/dribbble-sticker.svg" alt="Dribbble">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Signature -->
+            <img src="/assets/signature.png" alt="Léa Mathieu" class="signature-absolute">
+        </section>
+    </main>
+
+    <!-- Script JavaScript externe -->
+    <script src="script.js"></script>
+    
+   
+</body>
+
+</html>
