@@ -896,41 +896,6 @@ header {
 }
 
 
-
-
-
-.modal-close {
-    position: fixed;
-    top: 25px;
-    right: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: var(--clr-projects-title);
-    background: rgba(255, 255, 255, 0.9);
-    border: 3px solid rgba(233, 175, 163, 0.5);
-    cursor: pointer;
-    z-index: 1002;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-fast);
-    box-shadow: 
-        0 4px 15px rgba(233, 175, 163, 0.3),
-        0 0 0 2px rgba(255, 255, 255, 0.8);
-}
-
-.modal-close:hover {
-    background: var(--clr-projects-title);
-    color: white;
-    transform: scale(1.1) rotate(90deg);
-    box-shadow: 
-        0 6px 20px rgba(233, 175, 163, 0.4),
-        0 0 0 3px rgba(255, 255, 255, 0.9);
-}
-
 /* Contenu des projets */
 .project-details {
     display: none;
@@ -1315,7 +1280,9 @@ header {
 #about {
     background-image: url('assets/background.png');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1478,9 +1445,7 @@ header {
    ======================= */
 #contact {
     background-image: url('assets/background2.png');
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -1489,7 +1454,7 @@ header {
     justify-content: flex-start;
     position: relative;
     padding: 0;
-    overflow: hidden;
+
 }
 
 /* Container principal du contact centré */
@@ -1658,12 +1623,6 @@ header {
     z-index: 4;
 }
 
-
-
-
-
-
-
 .social-section:hover {
     transform: translateY(-2px);
 }
@@ -1690,10 +1649,12 @@ header {
     transform: scale(0.8) rotate(-15deg);
     flex-shrink: 0;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+    display: flex;
+    align-items: center;
 }
 
 #contact.stickers-animate .sticker-souris {
-    animation: gentleStickOn 1.2s ease-out 0.9s forwards;
+    animation: gentleStickOn 0.8s ease-out 0.6s forwards;
 }
 
 .sticker-souris:hover {
@@ -1712,9 +1673,13 @@ header {
         opacity: 0;
         transform: scale(0.8) rotate(-15deg);
     }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05) rotate(2deg);
+    40% {
+        opacity: 0.9;
+        transform: scale(1.08) rotate(3deg);
+    }
+    70% {
+        opacity: 0.95;
+        transform: scale(0.98) rotate(-1deg);
     }
     100% {
         opacity: 1;
@@ -1873,7 +1838,7 @@ header {
 }
 
 #contact.stickers-animate .sticker-coeur {
-    animation: gentleStickOn 1.2s ease-out 0.3s forwards;
+    animation: gentleStickOn 0.8s ease-out 0.2s forwards;
 }
 
 .sticker-coeur:hover {
@@ -1892,7 +1857,7 @@ header {
 }
 
 #contact.stickers-animate .sticker-cachet {
-    animation: gentleStickOn 1.2s ease-out 0.5s forwards;
+    animation: gentleStickOn 0.8s ease-out 0.4s forwards;
 }
 
 .sticker-cachet:hover {
@@ -1911,7 +1876,7 @@ header {
 }
 
 #contact.stickers-animate .sticker-lettre {
-    animation: gentleStickOn 1.2s ease-out 0.7s forwards;
+    animation: gentleStickOn 0.8s ease-out 0.6s forwards;
 }
 
 .sticker-lettre:hover {
@@ -1959,6 +1924,7 @@ header {
         min-height: 70vh;
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
     
     .contact-container {
@@ -2031,13 +1997,7 @@ header {
     
 
     
-    .signature-absolute {
-        position: absolute;
-        right: 2rem;
-        bottom: 2rem;
-        width: 150px;
-        z-index: 10;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -2046,6 +2006,7 @@ header {
         min-height: 60vh;
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
     
     .contact-container {
@@ -2087,8 +2048,9 @@ header {
     .social-intro {
         justify-content: center;
         text-align: center;
-        gap: 0.1rem;
+        gap: 1rem;
         flex-direction: row;
+        align-items: center;
     }
     
 
@@ -2117,10 +2079,12 @@ header {
         text-align: center;
         width: 100%;
         margin: 0;
-        line-height: 1.2;
+        line-height: 1.3;
         max-width: 100%;
         overflow-wrap: break-word;
         word-wrap: break-word;
+        display: flex;
+        align-items: center;
     }
     
     /* Ajuster encore plus les stickers sur très petit écran */
@@ -2157,6 +2121,24 @@ header {
     .sticker-souris:hover {
         animation: none;
         transform: scale(1.05);
+    }
+    
+    /* Améliorer l'alignement de l'icône de souris et du texte sur mobile */
+    .sticker-souris {
+        align-self: center;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .social-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        line-height: 1.3;
     }
 }
 
@@ -2488,73 +2470,18 @@ body.modal-open {
     }
 }
 
-/* =======================
-   Responsive Bouton Fermeture Modale
-   ======================= */
-/* Très grands écrans */
-@media (min-width: 1400px) {
-    .modal-close {
-        position: fixed;
-        top: 30px;
-        right: 40px;
-        width: 60px;
-        height: 60px;
-        font-size: 48px;
-        z-index: 1002;
-    }
-}
 
-/* Tablettes et petits écrans */
-@media (max-width: 768px) {
-    .modal-close {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 32px;
-        border-width: 2px;
-        z-index: 1002;
-    }
-}
-
-/* Mobiles moyens */
-@media (max-width: 480px) {
-    .modal-close {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 28px;
-        border-width: 2px;
-        z-index: 1002;
-    }
-}
-
-/* Très petits mobiles */
-@media (max-width: 360px) {
-    .modal-close {
-        position: fixed;
-        top: 12px;
-        right: 12px;
-        width: 35px;
-        height: 35px;
-        font-size: 24px;
-        border-width: 2px;
-        z-index: 1002;
-    }
-}
 
 /* =======================
    Responsive Section About
    ======================= */
 @media (max-width: 768px) {
     #about {
+        padding: 1rem 1rem;
+        min-height: 70vh;
         background-size: cover;
         background-position: center;
-        padding: 2rem 0;
-        min-height: auto;
+        background-repeat: no-repeat;
     }
     
     .about__content {
@@ -2601,6 +2528,7 @@ body.modal-open {
         padding: 1.5rem 0;
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
     
     .about__content {
@@ -3230,6 +3158,12 @@ body.modal-open {
 
 /* Très petits écrans (smartphones compacts) */
 @media (max-width: 375px) {
+    #about {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
     .hero {
         width: 99vw;
         padding: 1.5rem 0.5rem;
@@ -3376,13 +3310,7 @@ body.modal-open {
         width: 80px;
     }
     
-    .signature-absolute {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-        width: 100px;
-        z-index: 10;
-    }
+
 }
 
 /* =======================
@@ -3394,6 +3322,7 @@ body.modal-open {
         min-height: 70vh;
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
     
     .sticker-coeur {
@@ -3569,41 +3498,49 @@ body.modal-open {
    ======================= */
 @media (max-width: 768px) {
     .signature-absolute {
-        position: absolute;
-        right: 1.5rem;
-        bottom: 1.5rem;
-        width: 130px;
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 120px;
         z-index: 10;
+        margin: 2rem auto 0 auto;
+        display: block;
     }
 }
 
 @media (max-width: 480px) {
     .signature-absolute {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-        width: 110px;
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100px;
         z-index: 10;
+        margin: 1.5rem auto 0 auto;
+        display: block;
     }
 }
 
 @media (max-width: 375px) {
     .signature-absolute {
-        position: absolute;
-        right: 0.8rem;
+        position: relative;
+        right: auto;
         bottom: 0.8rem;
         width: 90px;
         z-index: 10;
+        margin: 1.2rem auto 0 auto;
+        display: block;
     }
 }
 
 @media (max-width: 320px) {
     .signature-absolute {
-        position: absolute;
-        right: 0.5rem;
-        bottom: 0.5rem;
+        position: relative;
+        right: auto;
+        bottom: auto;
         width: 80px;
         z-index: 10;
+        margin: 1rem auto 0 auto;
+        display: block;
     }
 }
 
