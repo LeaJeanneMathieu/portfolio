@@ -1445,16 +1445,20 @@ header {
    ======================= */
 #contact {
     background-image: url('assets/background2.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    padding: 0;
-
+    padding: 2rem 1rem;
+    overflow: hidden;
 }
 
 /* Container principal du contact centré */
@@ -1470,6 +1474,7 @@ header {
     z-index: 3;
     margin-top: 2rem;
     padding: 0 2rem;
+    flex: 1;
 }
 
 /* En-tête du contact - Style journal */
@@ -1492,8 +1497,6 @@ header {
     border: 2px solid rgba(233, 175, 163, 0.3);
     backdrop-filter: blur(10px);
 }
-
-
 
 .contact-intro {
     font-family: 'Young Serif', serif;
@@ -1920,21 +1923,46 @@ header {
 /* Responsive */
 @media (max-width: 768px) {
     #contact {
-        padding: 1rem 1rem;
-        min-height: 70vh;
+        padding: 1.5rem 1rem;
+        min-height: 80vh;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: scroll;
     }
     
     .contact-container {
-        margin-top: 3rem;
-        gap: 3rem;
+        margin-top: 2rem;
+        gap: 2.5rem;
+        padding: 0 1rem;
     }
     
     .contact-header {
         padding: 2.5rem 2rem;
         border-radius: 22px;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-intro {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+    
+    .contact__cta {
+        max-width: 100%;
+        aspect-ratio: auto;
+        margin: 1rem 0;
+    }
+    
+    .button {
+        padding: 1.2rem 3rem;
+        font-size: 1.7rem;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .button-icon {
+        font-size: 2.1rem;
     }
     
     .social-section {
@@ -1947,25 +1975,9 @@ header {
         min-height: 90px;
         margin-top: 2.5rem;
         border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
-    .contact-intro {
-        font-size: 2rem;
-    }
-    
-    .contact__cta {
-        max-width: 700px;
-        aspect-ratio: 2.2 / 1;
-    }
-    
-    .button {
-        padding: 1rem 2.5rem;
-        font-size: 1.7rem;
-    }
-    
-    .button-icon {
-        font-size: 2.1rem;
-}
     
     .social {
         gap: 1.5rem;
@@ -1995,54 +2007,67 @@ header {
         width: 55px;
     }
     
-
-    
-
+    /* Ajuster les stickers sur mobile */
+    .sticker-coeur,
+    .sticker-cachet,
+    .sticker-lettre {
+        position: absolute;
+        z-index: 2;
+    }
 }
 
 @media (max-width: 480px) {
     #contact {
-        padding: 0.8rem 0.8rem;
-        min-height: 60vh;
+        padding: 1rem 0.8rem;
+        min-height: 70vh;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: scroll;
     }
     
     .contact-container {
         gap: 2rem;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
+        padding: 0 0.5rem;
     }
     
     .contact-header {
         padding: 2rem 1.5rem;
         border-radius: 20px;
-    }
-    
-    .social-section {
-        max-width: 400px;
-        padding: 1.2rem 1.5rem;
-        margin-top: 2rem;
-        border-radius: 18px;
-        text-align: center;
+        margin-bottom: 0.5rem;
     }
     
     .contact-intro {
         font-size: 1.7rem;
+        line-height: 1.4;
     }
     
     .contact__cta {
-        max-width: 600px;
-        aspect-ratio: 1.4 / 1;
+        max-width: 100%;
+        aspect-ratio: auto;
+        margin: 0.5rem 0;
     }
     
     .button {
-        padding: 0.8rem 2rem;
+        padding: 1rem 2.5rem;
         font-size: 1.5rem;
+        width: 100%;
+        max-width: 350px;
     }
     
     .button-icon {
         font-size: 1.9rem;
+    }
+    
+    .social-section {
+        max-width: 380px;
+        padding: 1.2rem 1.5rem;
+        margin-top: 2rem;
+        border-radius: 18px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .social-intro {
@@ -2052,8 +2077,6 @@ header {
         flex-direction: row;
         align-items: center;
     }
-    
-
     
     .social {
         gap: 1.2rem;
@@ -2085,6 +2108,7 @@ header {
         word-wrap: break-word;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
     
     /* Ajuster encore plus les stickers sur très petit écran */
@@ -2130,15 +2154,6 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    .social-text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin: 0;
-        line-height: 1.3;
     }
 }
 
@@ -2650,136 +2665,15 @@ body.modal-open {
     #contact {
         background-size: cover;
         background-position: center;
-        height: 100vh;
+        min-height: 100vh;
+        height: auto;
+        background-attachment: fixed;
     }
 }
 
-/* Écrans 2K et ultra-wide (1920px à 2559px) */
-@media (min-width: 1920px) and (max-width: 2559px) {
-    .hero {
-        max-width: 1300px;
-        padding: 6.5rem 0;
-    }
-    
-    .hero__name {
-        font-size: 95px;
-    }
-    
-    .hero__intro {
-        font-size: 29px;
-    }
-    
-    .hero__role {
-        font-size: 29px;
-        padding: 2.8rem;
-    }
-    
-    .projects-layout {
-        max-width: 1700px;
-        gap: 3.5rem;
-    }
-    
-    .projects-left {
-        width: 48%;
-        padding: 0 1.5rem;
-        padding-top: 0.3rem;
-        gap: 4.5rem;
-    }
-    
-    .projects-cover {
-        width: 52%;
-        padding: 1.5rem;
-    }
-    
-    .projects-header {
-        padding: 1rem 1rem;
-        margin-bottom: 0;
-        min-height: auto;
-    }
-    
-    .projects__intro {
-        gap: 3.5rem;
-    }
-    
-    .projects__intro h2 {
-        margin-bottom: 2.5rem;
-        line-height: 1.4;
-    }
-    
-    .projects__intro p {
-        margin-bottom: 3rem;
-        line-height: 1.9;
-    }
-    
-    .modal-content {
-        max-width: 1700px;
-    }
-    
-    .about__content {
-        max-width: 1500px;
-        gap: 4.5rem;
-    }
-    
-    .about__text {
-        font-size: 27px;
-        line-height: 2.3;
-    }
-    
-    /* Ajustements contact pour écrans 2K */
-    #contact {
-        display: flex;
-        flex-direction: column;
-        padding: 0 2rem;
-        background-size: cover;
-        background-position: center;
-        padding-top: 1.5rem;
-        position: relative;
-    }
-    
-    .contact-container {
-        max-width: 900px;
-        margin: 0 auto;
-        gap: 2.5rem;
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
-        justify-content: center;
-    }
-    
-    .contact-header {
-        position: absolute;
-        top: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 5;
-    }
-    
-    .contact-header {
-        padding: 3rem 2.5rem;
-        margin-bottom: 0;
-    }
-    
-    .contact-intro {
-        font-size: 2.6rem;
-    }
-    
-    .contact__cta {
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    
-    .button {
-        padding: 2rem 4.5rem;
-        font-size: 1.9rem;
-    }
-    
-    .social-section {
-        bottom: 2.5rem;
-        left: 2.5rem;
-    }
-}
+
+
+
 
 /* Écrans ultra-larges (2560px et plus) */
 @media (min-width: 2560px) {
@@ -2799,6 +2693,65 @@ body.modal-open {
     .hero__role {
         font-size: 36px;
         padding: 3.5rem;
+    }
+    
+    /* Optimiser le background de la section contact sur écrans 4K */
+    #contact {
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        height: auto;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    
+    .contact-container {
+        max-width: 1400px;
+        gap: 5rem;
+        margin-top: 3rem;
+    }
+    
+    .contact-header {
+        padding: 5rem 4rem;
+        border-radius: 35px;
+    }
+    
+    .contact-intro {
+        font-size: 4rem;
+        line-height: 1.2;
+    }
+    
+    .button {
+        padding: 3rem 6rem;
+        font-size: 2.5rem;
+        border-radius: 50px;
+    }
+    
+    .button-icon {
+        font-size: 3rem;
+    }
+    
+    .social-section {
+        max-width: 700px;
+        padding: 3rem 4rem;
+        bottom: 4rem;
+        left: 4rem;
+        border-radius: 30px;
+    }
+    
+    .social-text {
+        font-size: 2.5rem;
+    }
+    
+    .social a {
+        width: 100px;
+        height: 100px;
+        border-radius: 30px;
+    }
+    
+    .social a img {
+        width: 55px;
+        height: 55px;
     }
     
     .role-icon {
@@ -3110,51 +3063,81 @@ body.modal-open {
     }
 }
 
-/* Écrans moyens (tablets landscape) */
-@media (min-width: 769px) and (max-width: 1199px) {
-    .hero {
-        max-width: 900px;
-        padding: 4rem 0;
-    }
-    
-    .hero__name {
-        font-size: 70px;
-    }
-    
-    .hero__intro {
-        font-size: 24px;
-    }
-    
-    .hero__role {
-        font-size: 23px;
-        padding: 1.8rem;
-    }
-    
-    .projects-layout {
-        max-width: 1200px;
-        gap: 2.5rem;
-    }
-    
-    .projects-left {
-        width: 40%;
-    }
-    
-    .projects-cover {
-        width: 60%;
-    }
-    
-    .about__content {
-        gap: 2.5rem;
-    }
-    
-    .about__text {
-        font-size: 22px;
-    }
-}
+
+
+
+
+
 
 /* Tablets portrait (déjà couvert par max-width: 768px) */
 /* Mobile landscape (déjà couvert par max-width: 768px) */
 /* Mobile portrait (déjà couvert par max-width: 480px) */
+
+/* Écrans moyens (tablets portrait et landscape) */
+@media (min-width: 481px) and (max-width: 768px) {
+    #contact {
+        padding: 2rem 1.5rem;
+        min-height: 75vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    }
+    
+    .contact-container {
+        max-width: 600px;
+        gap: 3rem;
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .contact-header {
+        padding: 3rem 2.5rem;
+        border-radius: 25px;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-intro {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+    
+    .contact__cta {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .button {
+        padding: 1.5rem 3.5rem;
+        font-size: 1.8rem;
+        max-width: 450px;
+    }
+    
+    .button-icon {
+        font-size: 2.2rem;
+    }
+    
+    .social-section {
+        max-width: 420px;
+        padding: 2rem 2.5rem;
+        margin-top: 3rem;
+        border-radius: 22px;
+    }
+    
+    .social-text {
+        font-size: 1.6rem;
+    }
+    
+    .social a {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+    }
+    
+    .social a img {
+        width: 36px;
+        height: 36px;
+    }
+}
 
 /* Très petits écrans (smartphones compacts) */
 @media (max-width: 375px) {
@@ -3245,8 +3228,6 @@ body.modal-open {
         border-radius: 12px;
     }
     
-
-    
     .project-details {
         padding: 1.2rem 0.8rem;
     }
@@ -3273,14 +3254,56 @@ body.modal-open {
         max-width: 400px;
     }
     
+    /* Ajustements contact pour très petits écrans */
+    #contact {
+        padding: 0.8rem 0.5rem;
+        min-height: 65vh;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .contact-container {
+        gap: 1.5rem;
+        margin-top: 1rem;
+        padding: 0 0.3rem;
+    }
+    
+    .contact-header {
+        padding: 1.8rem 1.2rem;
+        border-radius: 18px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-intro {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .contact__cta {
+        margin: 0.5rem 0;
+    }
+    
+    .button {
+        padding: 0.8rem 2rem;
+        font-size: 1.4rem;
+        max-width: 300px;
+    }
+    
+    .button-icon {
+        font-size: 1.7rem;
+    }
+    
     .social-section {
-        max-width: 350px;
+        max-width: 320px;
         padding: 1rem 1.2rem;
+        margin-top: 1.5rem;
+        border-radius: 16px;
     }
     
     .social a {
         width: 50px;
         height: 50px;
+        border-radius: 14px;
     }
     
     .social a img {
@@ -3290,6 +3313,7 @@ body.modal-open {
     
     .social-text {
         font-size: 1rem;
+        line-height: 1.3;
     }
     
     .sticker-coeur {
@@ -3309,8 +3333,6 @@ body.modal-open {
         right: 25px;
         width: 80px;
     }
-    
-
 }
 
 /* =======================
