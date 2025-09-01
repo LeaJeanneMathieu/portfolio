@@ -744,10 +744,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Ajouter la classe pour déclencher les animations
                     contactSection.classList.add('stickers-animate');
                     
-                    // Arrêter l'observation après le premier déclenchement
-                    contactObserver.unobserve(contactSection);
-                    
                     console.log('✅ Animations des stickers activées');
+                } else {
+                    console.log('👋 Section contact non visible, réinitialisation des animations');
+                    
+                    // Retirer la classe pour réinitialiser les animations
+                    contactSection.classList.remove('stickers-animate');
+                    
+                    console.log('🔄 Animations des stickers réinitialisées');
                 }
             });
         }, {

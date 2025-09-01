@@ -895,6 +895,57 @@ header {
     transform: scale(1) translateY(0);
 }
 
+/* Bouton de fermeture de la modale */
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(233, 175, 163, 0.3);
+    background: var(--clr-modal-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 
+        0 20px 60px rgba(233, 175, 163, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+    background: rgba(255, 248, 234, 1);
+    transform: scale(1.1);
+    border-color: rgba(233, 175, 163, 0.5);
+    box-shadow: 
+        0 25px 80px rgba(233, 175, 163, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.modal-close:active {
+    transform: scale(0.95);
+    box-shadow: 
+        0 15px 40px rgba(233, 175, 163, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.close-icon {
+    color: var(--clr-projects-title);
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover .close-icon {
+    color: var(--clr-accent);
+    transform: rotate(90deg);
+}
+
 
 /* Contenu des projets */
 .project-details {
@@ -1320,61 +1371,58 @@ header {
 .handdrawn-uxui {
     display: inline;
     position: relative;
+    overflow: visible;
 }
 
-.handdrawn-uxui::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #ffb6c1;
-    border-radius: 2px;
-    animation: repasseTrait 3s ease-in-out infinite;
+.pencil-underline {
+    display: block;
+    width: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff8c8c 0%, #ffb6c1 50%, #ff8c8c 100%);
+    border-radius: 3px;
+    margin-top: 8px;
+    animation: drawPencilLine 3s ease-in-out infinite;
+    animation-delay: 1s;
+    box-shadow: 0 2px 4px rgba(255, 140, 140, 0.3);
+    max-width: 350px;
 }
 
 .handdrawn-uxui strong {
     color: var(--clr-accent-strong) !important;
     font-weight: 600;
+    white-space: nowrap;
+    display: inline-block;
 }
 
-/* Animation de repassage sur le trait */
-@keyframes repasseTrait {
-    0%, 100% {
-        transform: scaleX(1);
-        background: #ffb6c1;
-        height: 3px;
+/* Animation de dessin au crayon */
+@keyframes drawPencilLine {
+    0% {
+        width: 0;
+        opacity: 0;
     }
-    15% {
-        transform: scaleX(1.05);
-        background: #ffc0cb;
-        height: 4px;
+    10% {
+        width: 0;
+        opacity: 1;
     }
     30% {
-        transform: scaleX(1.1);
-        background: #ffb6c1;
-        height: 5px;
-    }
-    45% {
-        transform: scaleX(1.05);
-        background: #ffc0cb;
-        height: 4px;
+        width: 40%;
+        opacity: 1;
     }
     60% {
-        transform: scaleX(1.1);
-        background: #ffb6c1;
-        height: 5px;
+        width: 80%;
+        opacity: 1;
     }
-    75% {
-        transform: scaleX(1.05);
-        background: #ffc0cb;
-        height: 4px;
+    85% {
+        width: 100%;
+        opacity: 1;
     }
-    90% {
-        transform: scaleX(1.02);
-        background: #ffb6c1;
-        height: 3px;
+    95% {
+        width: 100%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 0;
+        opacity: 0;
     }
 }
 
@@ -2366,6 +2414,18 @@ body.modal-open {
         border-radius: 15px;
     }
     
+    .modal-close {
+        width: 40px;
+        height: 40px;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .close-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
 
     
     .project-details {
@@ -2572,52 +2632,76 @@ body.modal-open {
         margin: 1rem auto 0 auto;
     }
     
-    .handdrawn-uxui::after {
-        height: 2px;
-        bottom: -3px;
+    .handdrawn-uxui strong {
+        white-space: normal;
+        display: inline;
     }
     
-    @keyframes repasseTrait {
-        0%, 100% {
-            transform: scaleX(1);
-            background: #ffb6c1;
-            height: 2px;
-        }
-        15% {
-            transform: scaleX(1.05);
-            background: #ffc0cb;
-            height: 3px;
-        }
-        30% {
-            transform: scaleX(1.1);
-            background: #ffb6c1;
-            height: 4px;
-        }
-        45% {
-            transform: scaleX(1.05);
-            background: #ffc0cb;
-            height: 3px;
-        }
-        60% {
-            transform: scaleX(1.1);
-            background: #ffb6c1;
-            height: 4px;
-        }
-        75% {
-            transform: scaleX(1.05);
-            background: #ffc0cb;
-            height: 3px;
-        }
-        90% {
-            transform: scaleX(1.02);
-            background: #ffb6c1;
-            height: 2px;
-        }
+    .pencil-underline {
+        height: 4px;
+        margin-top: 6px;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .handdrawn-uxui strong {
+        white-space: nowrap;
+        display: inline-block;
+        font-size: 20px;
+    }
+    
+    .pencil-underline {
+        height: 5px;
+        margin-top: 7px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 @media (max-width: 480px) {
+    .handdrawn-uxui strong {
+        white-space: normal;
+        display: inline;
+        font-size: 16px;
+    }
+    
+    .pencil-underline {
+        height: 3px;
+        margin-top: 4px;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
+@media (max-width: 360px) {
+    .handdrawn-uxui strong {
+        font-size: 14px;
+    }
+    
+    .pencil-underline {
+        height: 2px;
+        margin-top: 3px;
+        max-width: 180px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        top: 0.8rem;
+        right: 0.8rem;
+    }
+    
+    .close-icon {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 /* =======================
@@ -2653,6 +2737,18 @@ body.modal-open {
         max-width: 1600px;
     }
     
+    .modal-close {
+        width: 60px;
+        height: 60px;
+        top: 2rem;
+        right: 2rem;
+    }
+    
+    .close-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
     .about__content {
         max-width: 1400px;
         gap: 4rem;
@@ -2668,7 +2764,7 @@ body.modal-open {
         background-position: center;
         min-height: 100vh;
         height: auto;
-        background-attachment: fixed;
+        background-attachment: scroll;
     }
 }
 
@@ -2702,7 +2798,7 @@ body.modal-open {
         background-position: center;
         min-height: 100vh;
         height: auto;
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-repeat: no-repeat;
     }
     
