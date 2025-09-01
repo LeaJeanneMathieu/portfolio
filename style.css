@@ -114,6 +114,56 @@ footer {
     padding: 4rem 1rem;
 }
 
+/* Optimisations pour écrans 27 pouces et plus */
+@media (min-width: 1920px) {
+    section,
+    header,
+    footer {
+        padding: 3rem 2rem;
+    }
+    
+    #about {
+        padding: 4rem 2rem;
+    }
+    
+    #contact {
+        padding: 4rem 2rem;
+    }
+    
+    /* Optimisations des animations pour réduire le lag */
+    * {
+        will-change: auto;
+    }
+    
+    .pencil-underline {
+        will-change: width;
+    }
+    
+    .sticker-coeur,
+    .sticker-cachet,
+    .sticker-lettre,
+    .sticker-souris {
+        will-change: transform;
+    }
+    
+    /* Réduire les animations sur les grands écrans pour de meilleures performances */
+    .pencil-underline {
+        animation-duration: 2.5s;
+    }
+    
+    .sticker-coeur {
+        animation-duration: 3s;
+    }
+    
+    .sticker-cachet {
+        animation-duration: 4s;
+    }
+    
+    .sticker-lettre {
+        animation-duration: 3.5s;
+    }
+}
+
 /* =======================
    5. Header / Hero
    ======================= */
@@ -902,8 +952,8 @@ header {
     right: 1.5rem;
     width: 50px;
     height: 50px;
-    border: 3px solid rgba(233, 175, 163, 0.3);
-    background: var(--clr-modal-bg);
+    border: 3px solid rgba(233, 175, 163, 0.8);
+    background: rgba(255, 248, 234, 0.95);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -921,7 +971,7 @@ header {
 .modal-close:hover {
     background: rgba(255, 248, 234, 1);
     transform: scale(1.1);
-    border-color: rgba(233, 175, 163, 0.5);
+    border-color: rgba(255, 140, 140, 0.8);
     box-shadow: 
         0 25px 80px rgba(233, 175, 163, 0.4),
         0 0 0 1px rgba(255, 255, 255, 0.9),
@@ -930,6 +980,7 @@ header {
 
 .modal-close:active {
     transform: scale(0.95);
+    border-color: rgba(255, 140, 140, 1);
     box-shadow: 
         0 15px 40px rgba(233, 175, 163, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.8),
@@ -937,12 +988,12 @@ header {
 }
 
 .close-icon {
-    color: var(--clr-projects-title);
+    color: rgba(233, 175, 163, 1);
     transition: all 0.3s ease;
 }
 
 .modal-close:hover .close-icon {
-    color: var(--clr-accent);
+    color: rgba(255, 140, 140, 1);
     transform: rotate(90deg);
 }
 
@@ -2711,51 +2762,65 @@ body.modal-open {
 /* Très grands écrans (4K, ultra-wide) */
 @media (min-width: 1920px) {
     .hero {
-        max-width: 1200px;
-        padding: 6rem 0;
+        max-width: 1400px;
+        padding: 8rem 0;
     }
     
     .hero__name {
-        font-size: 90px;
+        font-size: 110px;
     }
     
     .hero__intro {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .hero__role {
-        font-size: 28px;
-        padding: 2.5rem;
+        font-size: 32px;
+        padding: 3rem;
     }
     
     .projects-layout {
-        max-width: 1600px;
-        gap: 3rem;
-    }
-    
-    .modal-content {
-        max-width: 1600px;
-    }
-    
-    .modal-close {
-        width: 60px;
-        height: 60px;
-        top: 2rem;
-        right: 2rem;
-    }
-    
-    .close-icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .about__content {
-        max-width: 1400px;
+        max-width: 1800px;
         gap: 4rem;
     }
     
+    .modal-content {
+        max-width: 1800px;
+    }
+    
+    .modal-close {
+        width: 70px;
+        height: 70px;
+        top: 2.5rem;
+        right: 2.5rem;
+    }
+    
+    .close-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .about__content {
+        max-width: 1600px;
+        gap: 5rem;
+        padding: 6rem 2rem;
+    }
+    
     .about__text {
-        font-size: 26px;
+        font-size: 30px;
+        line-height: 1.8;
+    }
+    
+    .about__text p {
+        margin-bottom: 2rem;
+    }
+    
+    .about__portrait {
+        max-width: 600px;
+    }
+    
+    .about__portrait img {
+        max-width: 600px;
     }
     
     /* Optimiser le background de la section contact sur très grands écrans */
@@ -2765,6 +2830,55 @@ body.modal-open {
         min-height: 100vh;
         height: auto;
         background-attachment: scroll;
+        padding: 8rem 2rem;
+    }
+    
+    .contact-container {
+        max-width: 1200px;
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+    
+    .contact-intro {
+        font-size: 32px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+    }
+    
+    .button {
+        font-size: 24px;
+        padding: 1.5rem 3rem;
+        border-radius: 50px;
+    }
+    
+    .social-section {
+        bottom: 3rem;
+        left: 3rem;
+    }
+    
+    .social-text {
+        font-size: 20px;
+    }
+    
+    .social a img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Optimisations spécifiques pour la section contact */
+    .contact-header {
+        padding: 3rem 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact__cta {
+        margin: 2rem 0;
+    }
+    
+    /* Réduire l'espacement vertical excessif */
+    #contact {
+        min-height: 90vh;
+        justify-content: center;
     }
 }
 
