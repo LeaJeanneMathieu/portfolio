@@ -1,0 +1,29 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond principal avec forme douce et organique -->
+  <ellipse cx="40" cy="40" rx="32" ry="28" fill="#F7B2A8"/>
+  
+  <!-- Bordure douce -->
+  <ellipse cx="40" cy="40" rx="34" ry="30" fill="#EAA097" opacity="0.6"/>
+  
+  <!-- Icône Malt (design simple et reconnaissable) -->
+  <g transform="translate(16, 16)">
+    <!-- Lettre M simple et claire -->
+    <path d="M8 8 L8 28 M8 8 L20 16 L32 8 M32 8 L32 28" 
+          stroke="#FFFFFF" 
+          stroke-width="4" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none"/>
+    
+    <!-- Point décoratif (style Malt) -->
+    <circle cx="34" cy="8" r="3" fill="#FFFFFF"/>
+    
+    <!-- Ligne de soulignement -->
+    <path d="M8 30 L32 30" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Éléments décoratifs doux -->
+  <circle cx="25" cy="18" r="2" fill="#FFFFFF" opacity="0.3"/>
+  <circle cx="55" cy="25" r="1.5" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="18" cy="55" r="2" fill="#FFFFFF" opacity="0.3"/>
+</svg>
