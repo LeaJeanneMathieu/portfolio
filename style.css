@@ -1612,20 +1612,7 @@ header {
     text-shadow: var(--shadow-text);
 }
 
-.contact-intro::after {
-    content: '♥';
-    position: absolute;
-    bottom: -15px;
-    right: -10px;
-    font-size: 1.5rem;
-    color: var(--clr-accent-strong);
-    animation: gentleHeartBeat 3s ease-in-out infinite;
-}
 
-@keyframes gentleHeartBeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
 
 /* Section CTA - Style journal mignon */
 .contact__cta {
@@ -3620,16 +3607,16 @@ body.modal-open {
 
 @media (max-width: 480px) {
     .sticker-coeur {
-        top: 100px;
-        left: 15px;
+        top: 80px;
+        left: 5px;
         width: 75px;
         transform: scale(0.85) rotate(-6deg);
         z-index: 10;
     }
     
     .sticker-cachet {
-        top: 70px;
-        right: 15px;
+        top: 50px;
+        right: 5px;
         width: 60px;
         transform: scale(0.85) rotate(6deg);
         z-index: 10;
@@ -3662,16 +3649,16 @@ body.modal-open {
 
 @media (max-width: 375px) {
     .sticker-coeur {
-        top: 80px;
-        left: 10px;
+        top: 60px;
+        left: 5px;
         width: 65px;
         transform: scale(0.8) rotate(-5deg);
         z-index: 10;
     }
     
     .sticker-cachet {
-        top: 60px;
-        right: 10px;
+        top: 40px;
+        right: 5px;
         width: 50px;
         transform: scale(0.8) rotate(5deg);
         z-index: 10;
@@ -3704,16 +3691,16 @@ body.modal-open {
 
 @media (max-width: 320px) {
     .sticker-coeur {
-        top: 70px;
-        left: 8px;
+        top: 50px;
+        left: 3px;
         width: 55px;
         transform: scale(0.75) rotate(-4deg);
         z-index: 10;
     }
     
     .sticker-cachet {
-        top: 50px;
-        right: 8px;
+        top: 30px;
+        right: 3px;
         width: 45px;
         transform: scale(0.75) rotate(4deg);
         z-index: 10;
