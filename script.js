@@ -7,17 +7,71 @@ document.addEventListener('DOMContentLoaded', function() {
         default: {
             background: 'url("assets/fond1.png")',
             textColor: '#aaa37f',
-            mouseIcon: 'assets/icone.png'
+            mouseIcon: 'assets/icone.png',
+            accentColor: '#aaa37f',
+            projectsTitle: '#aaa37f',
+            projectsIntro: '#aaa37f',
+            contactIntro: '#aaa37f',
+            socialText: '#aaa37f',
+            buttonBg: 'linear-gradient(135deg, #aaa37f 0%, #BAB38F 50%, #aaa37f 100%)',
+            buttonBorder: '#9A936F',
+            projectsLine: 'linear-gradient(90deg, #aaa37f, #BAB38F)',
+            pencilLine: 'linear-gradient(90deg, #aaa37f 0%, #BAB38F 50%, #aaa37f 100%)',
+            socialBg: 'rgba(170, 163, 127, 0.9)',
+            socialBorder: 'rgba(170, 163, 127, 0.5)',
+            buttonShadow: 'rgba(170, 163, 127, 0.4)',
+            stickers: {
+                coeur: 'assets/sticker1-green.png',
+                cachet: 'assets/sticker2-green.png',
+                lettre: 'assets/sticker3-green.png'
+            },
+            signature: 'assets/signature green.png'
         },
         color1: {
             background: 'url("assets/fond2.png")',
             textColor: '#E8A8A0',
-            mouseIcon: 'assets/icon2.png'
+            mouseIcon: 'assets/icon2.png',
+            accentColor: ' rgba(255, 112, 112, 1)',
+            projectsTitle: ' rgba(255, 112, 112, 1)',
+            projectsIntro: ' rgba(255, 112, 112, 1)',
+            contactIntro: ' rgba(255, 112, 112, 1)',
+            socialText: ' rgba(255, 112, 112, 1)',
+            buttonBg: 'linear-gradient(135deg, #E8A8A0 0%, #F0B8B0 50%, #E8A8A0 100%)',
+            buttonBorder: '#D49A90',
+            projectsLine: 'linear-gradient(90deg, #E8A8A0, #F0B8B0)',
+            pencilLine: 'linear-gradient(90deg, #E8A8A0 0%, #F0B8B0 50%, #E8A8A0 100%)',
+            socialBg: 'rgba(232, 168, 160, 0.9)',
+            socialBorder: 'rgba(232, 168, 160, 0.5)',
+            buttonShadow: 'rgba(232, 168, 160, 0.4)',
+            stickers: {
+                coeur: 'assets/sr.png',
+                cachet: 'assets/sticker7.png',
+                lettre: 'assets/sticker10.png'
+            },
+            signature: 'assets/signature.png'
         },
         color2: {
             background: 'url("assets/fond3.png")',
             textColor: '#B5B2EA',
-            mouseIcon: 'assets/icon3.png'
+            mouseIcon: 'assets/icon3.png',
+            accentColor: '#B5B2EA',
+            projectsTitle: '#B5B2EA',
+            projectsIntro: '#B5B2EA',
+            contactIntro: '#B5B2EA',
+            socialText: '#B5B2EA',
+            buttonBg: 'linear-gradient(135deg, #B5B2EA 0%, #C5C2F0 50%, #B5B2EA 100%)',
+            buttonBorder: '#A5A2DA',
+            projectsLine: 'linear-gradient(90deg, #B5B2EA, #C5C2F0)',
+            pencilLine: 'linear-gradient(90deg, #B5B2EA 0%, #C5C2F0 50%, #B5B2EA 100%)',
+            socialBg: 'rgba(181, 178, 234, 0.9)',
+            socialBorder: 'rgba(181, 178, 234, 0.5)',
+            buttonShadow: 'rgba(181, 178, 234, 0.4)',
+            stickers: {
+                coeur: 'assets/sticker1-violet.png',
+                cachet: 'assets/sticker2-violet.png',
+                lettre: 'assets/sticker3-violet.png'
+            },
+            signature: 'assets/signature violet.png'
         }
     };
     
@@ -30,6 +84,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const menuItems = document.querySelector('.menu-items');
     const menuLinks = document.querySelectorAll('.menu-link');
+    
+    // Nouveaux éléments à colorer
+    const projectsTitle = document.querySelector('.projects-title');
+    const projectsIntro = document.querySelector('.projects__intro h2');
+    const contactIntro = document.querySelector('.contact-intro');
+    const socialText = document.querySelector('.social-text');
+    const contactButton = document.querySelector('.button');
     
     // Gestion du menu mobile
     let isMenuOpen = false;
@@ -186,6 +247,130 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('✅ Classes de thème de la section hero mises à jour');
         }
         
+        // Colorer les titres des projets
+        if (projectsTitle) {
+            projectsTitle.style.color = theme.projectsTitle;
+            console.log('✅ Couleur du titre des projets mise à jour');
+        }
+        
+        // Colorer l'intro des projets
+        if (projectsIntro) {
+            projectsIntro.style.color = theme.projectsIntro;
+            console.log('✅ Couleur de l\'intro des projets mise à jour');
+        }
+        
+        // Colorer l'intro du contact
+        if (contactIntro) {
+            contactIntro.style.color = theme.contactIntro;
+            console.log('✅ Couleur de l\'intro du contact mise à jour');
+        }
+        
+        // Colorer le texte des réseaux sociaux
+        if (socialText) {
+            socialText.style.color = theme.socialText;
+            console.log('✅ Couleur du texte des réseaux sociaux mise à jour');
+        }
+        
+        // Colorer le bouton de contact
+        if (contactButton) {
+            contactButton.style.background = theme.buttonBg;
+            contactButton.style.borderColor = theme.buttonBorder;
+            contactButton.style.boxShadow = `
+                0 8px 25px ${theme.buttonShadow},
+                0 4px 15px ${theme.buttonShadow},
+                inset 0 2px 0 rgba(255, 255, 255, 0.6)
+            `;
+            console.log('✅ Couleurs et ombre du bouton de contact mises à jour');
+        }
+        
+        // Colorer la ligne sous "Mes projets"
+        const projectsLineStyle = document.createElement('style');
+        projectsLineStyle.id = 'projects-line-style';
+        projectsLineStyle.textContent = `
+            .projects-title::before {
+                background: ${theme.projectsLine} !important;
+            }
+        `;
+        
+        // Supprimer l'ancien style s'il existe
+        const oldProjectsLineStyle = document.querySelector('#projects-line-style');
+        if (oldProjectsLineStyle) oldProjectsLineStyle.remove();
+        
+        document.head.appendChild(projectsLineStyle);
+        console.log('✅ Couleur de la ligne des projets mise à jour');
+        
+        // Colorer la ligne animée dans "À propos"
+        const pencilLineStyle = document.createElement('style');
+        pencilLineStyle.id = 'pencil-line-style';
+        pencilLineStyle.textContent = `
+            .pencil-underline {
+                background: ${theme.pencilLine} !important;
+            }
+        `;
+        
+        // Supprimer l'ancien style s'il existe
+        const oldPencilLineStyle = document.querySelector('#pencil-line-style');
+        if (oldPencilLineStyle) oldPencilLineStyle.remove();
+        
+        document.head.appendChild(pencilLineStyle);
+        console.log('✅ Couleur de la ligne animée "À propos" mise à jour');
+        
+        // Colorer les logos des réseaux sociaux
+        const socialStyle = document.createElement('style');
+        socialStyle.id = 'social-style';
+        socialStyle.textContent = `
+            .social a {
+                background: ${theme.socialBg} !important;
+                border-color: ${theme.socialBorder} !important;
+            }
+        `;
+        
+        // Supprimer l'ancien style s'il existe
+        const oldSocialStyle = document.querySelector('#social-style');
+        if (oldSocialStyle) oldSocialStyle.remove();
+        
+        document.head.appendChild(socialStyle);
+        console.log('✅ Couleurs des logos des réseaux sociaux mises à jour');
+        
+        // Changer les stickers selon le thème
+        if (theme.stickers) {
+            const stickerCoeur = document.querySelector('.sticker-coeur');
+            const stickerCachet = document.querySelector('.sticker-cachet');
+            const stickerLettre = document.querySelector('.sticker-lettre');
+            
+            if (stickerCoeur) {
+                stickerCoeur.src = theme.stickers.coeur;
+                console.log('✅ Sticker cœur mis à jour:', theme.stickers.coeur);
+            }
+            
+            if (stickerCachet) {
+                stickerCachet.src = theme.stickers.cachet;
+                console.log('✅ Sticker cachet mis à jour:', theme.stickers.cachet);
+            }
+            
+            if (stickerLettre) {
+                stickerLettre.src = theme.stickers.lettre;
+                console.log('✅ Sticker lettre mis à jour:', theme.stickers.lettre);
+            }
+        }
+        
+        // Changer la signature selon le thème
+        if (theme.signature) {
+            const signature = document.querySelector('.signature-absolute');
+            if (signature) {
+                signature.src = theme.signature;
+                console.log('✅ Signature mise à jour:', theme.signature);
+            }
+        }
+        
+        // Appliquer les couleurs aux variables CSS personnalisées
+        document.documentElement.style.setProperty('--clr-primary', theme.textColor);
+        document.documentElement.style.setProperty('--clr-accent', theme.accentColor);
+        document.documentElement.style.setProperty('--clr-projects-title', theme.projectsTitle);
+        document.documentElement.style.setProperty('--clr-projects-intro', theme.projectsIntro);
+        document.documentElement.style.setProperty('--clr-accent-strong', theme.contactIntro);
+        console.log('✅ Variables CSS personnalisées mises à jour');
+        
         // Mettre à jour l'état actif des boutons
         colorButtons.forEach(btn => {
             btn.classList.remove('active');
@@ -320,19 +505,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeProjectModal() {
         console.log('🔒 Fermeture de la modale');
         
-        if (projectModal) {
-            projectModal.classList.remove('show');
-        }
-        
-        // Restaurer le scroll de la page
-        document.body.classList.remove('modal-open');
-        
-        // Réactiver le scroll normal
-        removeModalScrollPrevention();
-        
-        // Masquer tous les détails des projets
-        projectDetails.forEach(detail => {
-            detail.classList.remove('active');
+        // Lancer l'animation de fermeture
+        animateModalClose(() => {
+            // Une fois l'animation terminée, masquer la modale
+            if (projectModal) {
+                projectModal.classList.remove('show');
+            }
+            
+            // Restaurer le scroll de la page
+            document.body.classList.remove('modal-open');
+            
+            // Réactiver le scroll normal
+            removeModalScrollPrevention();
+            
+            // Masquer tous les détails des projets
+            projectDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
         });
     }
     
@@ -717,6 +906,74 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalContent.style.filter = '';
                 modalOverlay.style.backdropFilter = '';
                 modalOverlay.style.backgroundColor = '';
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // =======================
+    // Animation de fermeture de la modale
+    // =======================
+    
+    function animateModalClose(callback) {
+        const modalContent = document.querySelector('.modal-content');
+        const modalOverlay = document.querySelector('.project-modal');
+        
+        if (!modalContent || !modalOverlay) {
+            // Si les éléments n'existent pas, exécuter le callback immédiatement
+            if (callback) callback();
+            return;
+        }
+        
+        // État initial - partir de l'état final de l'ouverture
+        modalContent.style.transform = 'scale(1) translateY(0px)';
+        modalContent.style.opacity = '1';
+        modalContent.style.filter = 'blur(0px)';
+        
+        modalOverlay.style.backdropFilter = 'blur(10px)';
+        modalOverlay.style.backgroundColor = 'rgba(233, 175, 163, 0.95)';
+        
+        // Animation de fermeture (inverse de l'ouverture)
+        let startTime = null;
+        const duration = 300; // Légèrement plus rapide que l'ouverture pour un effet dynamique
+        
+        function animate(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Courbe d'easing pour la fermeture (plus rapide au début)
+            const easeIn = Math.pow(progress, 2);
+            
+            // Animation du contenu (inverse de l'ouverture)
+            const scale = 1 - (0.1 * easeIn); // De 1 à 0.9
+            const translateY = 0 + (30 * easeIn); // De 0 à 30px
+            const opacity = 1 - easeIn; // De 1 à 0
+            const blur = 0 + (1 * easeIn); // De 0 à 1px
+            
+            modalContent.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            modalContent.style.opacity = opacity;
+            modalContent.style.filter = `blur(${blur}px)`;
+            
+            // Animation de l'arrière-plan (inverse de l'ouverture)
+            const backdropBlur = 10 - (10 * easeIn); // De 10 à 0
+            const bgOpacity = 0.95 - (0.85 * easeIn); // De 0.95 à 0.1
+            modalOverlay.style.backdropFilter = `blur(${backdropBlur}px)`;
+            modalOverlay.style.backgroundColor = `rgba(233, 175, 163, ${bgOpacity})`;
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Animation terminée, nettoyer les styles et exécuter le callback
+                modalContent.style.transform = '';
+                modalContent.style.opacity = '';
+                modalContent.style.filter = '';
+                modalOverlay.style.backdropFilter = '';
+                modalOverlay.style.backgroundColor = '';
+                
+                // Exécuter le callback pour continuer la fermeture
+                if (callback) callback();
             }
         }
         

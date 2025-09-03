@@ -241,10 +241,10 @@ header {
 
 /* Header menu */
 .header-menu {
-    position: absolute;
+    position: fixed;
     top: 3rem;
     right: 2rem;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .menu-toggle {
@@ -1433,6 +1433,8 @@ header {
     background: linear-gradient(90deg, #ff8c8c 0%, #ffb6c1 50%, #ff8c8c 100%);
     border-radius: 3px;
     margin-top: 8px;
+    margin-left: 45%;
+    margin-right: auto;
     animation: drawPencilLine 3s ease-in-out infinite;
     animation-delay: 1s;
     box-shadow: 0 2px 4px rgba(255, 140, 140, 0.3);
@@ -2066,6 +2068,7 @@ header {
         text-align: center;
     }
     
+    .social a {
         width: 55px;
     }
     
@@ -2202,25 +2205,18 @@ header {
     }
     
     /* Désactiver les animations complexes sur mobile */
-        animation: none;
-        transform: scale(1.02);
-    }
-    
-        animation: none;
-        transform: scale(1.05);
-    
-    
-    /* Désactiver les animations complexes sur mobile */
     .social a:hover {
         animation: none;
         transform: scale(1.02);
     }
     
+    .social a:hover img {
         animation: none;
         transform: scale(1.05);
     }
     
     /* Améliorer l'alignement de l'icône de souris et du texte sur mobile */
+    .social-text {
         align-self: center;
         margin: 0;
         display: flex;
