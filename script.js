@@ -1,6 +1,5 @@
 // Système de défilement des projets avec vitesse contrôlée et reprise du scroll corrigée
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== SYSTÈME DE CHANGEMENT DE COULEUR ===');
     
     // Configuration des thèmes de couleur
     const colorThemes = {
@@ -154,29 +153,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+
+    
     // Fonction pour changer le thème
     function changeColorTheme(themeName) {
         const theme = colorThemes[themeName];
         if (!theme) return;
         
-        console.log(`🎨 Changement vers le thème: ${themeName}`);
-        
         // Changer le background du header
         if (header) {
             header.style.backgroundImage = theme.background;
-            console.log('✅ Background du header mis à jour');
         }
         
         // Changer la couleur du nom
         if (heroName) {
             heroName.style.color = theme.textColor;
-            console.log('✅ Couleur du nom mise à jour');
         }
         
         // Changer l'icône de souris
         if (mouseIcon) {
             mouseIcon.src = theme.mouseIcon;
-            console.log('✅ Icône de souris mise à jour');
         }
         
         // Changer les couleurs du menu
@@ -199,7 +195,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 0 0 0 4px rgba(255, 255, 255, 0.9),
                 0 0 20px ${theme.textColor}50
             `;
-            console.log('✅ Couleurs et ombre du bouton menu mises à jour');
         }
         
         if (menuItems) {
@@ -221,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 0 0 0 2px rgba(255, 255, 255, 0.9),
                 0 0 30px ${theme.textColor}40
             `;
-            console.log('✅ Couleur et ombre de la bordure du menu mises à jour');
+
         }
         
         if (menuLinks.length > 0) {
@@ -230,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Ajouter une ombre colorée au survol
                 link.style.setProperty('--hover-shadow', `0 4px 15px ${theme.textColor}50`);
             });
-            console.log('✅ Couleurs et ombres des liens du menu mises à jour');
+
         }
         
         // Mettre à jour les classes de thème sur la section hero pour le contour en pointillés
@@ -244,31 +239,31 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (themeName === 'color2') {
                 heroSection.classList.add('theme-color2');
             }
-            console.log('✅ Classes de thème de la section hero mises à jour');
+
         }
         
         // Colorer les titres des projets
         if (projectsTitle) {
             projectsTitle.style.color = theme.projectsTitle;
-            console.log('✅ Couleur du titre des projets mise à jour');
+
         }
         
         // Colorer l'intro des projets
         if (projectsIntro) {
             projectsIntro.style.color = theme.projectsIntro;
-            console.log('✅ Couleur de l\'intro des projets mise à jour');
+
         }
         
         // Colorer l'intro du contact
         if (contactIntro) {
             contactIntro.style.color = theme.contactIntro;
-            console.log('✅ Couleur de l\'intro du contact mise à jour');
+
         }
         
         // Colorer le texte des réseaux sociaux
         if (socialText) {
             socialText.style.color = theme.socialText;
-            console.log('✅ Couleur du texte des réseaux sociaux mise à jour');
+
         }
         
         // Colorer le bouton de contact
@@ -280,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 0 4px 15px ${theme.buttonShadow},
                 inset 0 2px 0 rgba(255, 255, 255, 0.6)
             `;
-            console.log('✅ Couleurs et ombre du bouton de contact mises à jour');
+
         }
         
         // Colorer la ligne sous "Mes projets"
@@ -297,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (oldProjectsLineStyle) oldProjectsLineStyle.remove();
         
         document.head.appendChild(projectsLineStyle);
-        console.log('✅ Couleur de la ligne des projets mise à jour');
         
         // Colorer la ligne animée dans "À propos"
         const pencilLineStyle = document.createElement('style');
@@ -313,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (oldPencilLineStyle) oldPencilLineStyle.remove();
         
         document.head.appendChild(pencilLineStyle);
-        console.log('✅ Couleur de la ligne animée "À propos" mise à jour');
         
         // Colorer les logos des réseaux sociaux
         const socialStyle = document.createElement('style');
@@ -330,7 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (oldSocialStyle) oldSocialStyle.remove();
         
         document.head.appendChild(socialStyle);
-        console.log('✅ Couleurs des logos des réseaux sociaux mises à jour');
         
         // Changer les stickers selon le thème
         if (theme.stickers) {
@@ -340,17 +332,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (stickerCoeur) {
                 stickerCoeur.src = theme.stickers.coeur;
-                console.log('✅ Sticker cœur mis à jour:', theme.stickers.coeur);
             }
             
             if (stickerCachet) {
                 stickerCachet.src = theme.stickers.cachet;
-                console.log('✅ Sticker cachet mis à jour:', theme.stickers.cachet);
             }
             
             if (stickerLettre) {
                 stickerLettre.src = theme.stickers.lettre;
-                console.log('✅ Sticker lettre mis à jour:', theme.stickers.lettre);
             }
         }
         
@@ -359,7 +348,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const signature = document.querySelector('.signature-absolute');
             if (signature) {
                 signature.src = theme.signature;
-                console.log('✅ Signature mise à jour:', theme.signature);
             }
         }
         
@@ -369,7 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.setProperty('--clr-projects-title', theme.projectsTitle);
         document.documentElement.style.setProperty('--clr-projects-intro', theme.projectsIntro);
         document.documentElement.style.setProperty('--clr-accent-strong', theme.contactIntro);
-        console.log('✅ Variables CSS personnalisées mises à jour');
         
         // Mettre à jour l'état actif des boutons
         colorButtons.forEach(btn => {
@@ -381,7 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Sauvegarder le choix dans le localStorage
         localStorage.setItem('selectedTheme', themeName);
-        console.log('💾 Thème sauvegardé dans le localStorage');
     }
     
     // Ajouter les événements aux boutons de couleur
@@ -396,15 +382,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('selectedTheme');
     if (savedTheme && colorThemes[savedTheme]) {
         changeColorTheme(savedTheme);
-        console.log('🔄 Thème restauré:', savedTheme);
     } else {
         // Appliquer le thème par défaut
         changeColorTheme('default');
-        console.log('🎯 Thème par défaut appliqué');
     }
-    
-    console.log('✅ Système de changement de couleur activé');
-    console.log('=== FIN DU SYSTÈME DE COULEUR ===');
 });
 
 // =======================
@@ -413,25 +394,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== SYSTÈME DE MODALES DES PROJETS ===');
-    
     const projectModal = document.getElementById('project-modal');
     const modalClose = document.querySelector('.modal-close');
     const projectFigures = document.querySelectorAll('.project__figure');
     const projectDetails = document.querySelectorAll('.project-details');
 
-    console.log('🔍 Éléments trouvés:', {
-        modal: projectModal,
-        closeBtn: modalClose,
-        figures: projectFigures.length,
-        details: projectDetails.length
-    });
-
     // Ouvrir la modale au clic sur un projet
     projectFigures.forEach(figure => {
         figure.addEventListener('click', function() {
             const projectId = this.getAttribute('data-project');
-            console.log('🖱️ Clic sur le projet:', projectId);
             openProjectModal(projectId);
         });
     });
@@ -458,9 +429,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function openProjectModal(projectId) {
-        console.log('🚀 Ouverture de la modale pour le projet:', projectId);
-        console.log('🚀 Type de projectId:', typeof projectId);
-        
         // Masquer tous les détails des projets
         projectDetails.forEach(detail => {
             detail.classList.remove('active');
@@ -468,22 +436,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Afficher les détails du projet sélectionné
         const selectedProject = document.querySelector(`.project-details[data-project="${projectId}"]`);
-        console.log('📋 Projet sélectionné:', selectedProject);
         
         if (selectedProject) {
             selectedProject.classList.add('active');
-            console.log('✅ Projet activé');
-        } else {
-            console.log('❌ Projet non trouvé');
         }
 
         // Afficher la modale
         if (projectModal) {
             projectModal.classList.add('show');
-            console.log('✅ Modale affichée');
             
             // Appliquer les couleurs du projet
-            console.log('🎨 Appel de applyProjectColors avec:', projectId);
             applyProjectColors(projectId);
             
             // Animation d'ouverture fluide
@@ -503,8 +465,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function closeProjectModal() {
-        console.log('🔒 Fermeture de la modale');
-        
         // Lancer l'animation de fermeture
         animateModalClose(() => {
             // Une fois l'animation terminée, masquer la modale
@@ -567,8 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.stopPropagation();
     }
     
-    console.log('✅ Système de modales activé');
-    console.log('=== FIN DU SYSTÈME DE MODALES ===');
+
     
     // =======================
     // Ouverture simple des maquettes en grand
@@ -667,19 +626,16 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Appliquer la couleur du projet
-        console.log('🎨 Projet détecté:', projectId);
         if (projectColors[projectId]) {
             const colors = projectColors[projectId];
             content.style.borderColor = colors.background;
             content.style.boxShadow = `0 20px 60px ${colors.background}`;
             info.style.color = colors.text;
-            console.log('✅ Couleurs appliquées:', colors);
         } else {
             // Couleur par défaut
             content.style.borderColor = 'rgba(233, 175, 163, 0.9)';
             content.style.boxShadow = '0 20px 60px rgba(233, 175, 163, 0.9)';
             info.style.color = '#8B4513';
-            console.log('⚠️ Couleurs par défaut appliquées');
         }
         
         modal.classList.add('show');
@@ -727,18 +683,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // =======================
     
     function applyProjectColors(projectId) {
-        console.log('🔍 Recherche des couleurs pour le projet:', projectId);
-        console.log('🔍 projectColors disponibles:', Object.keys(projectColors));
-        
         const colors = projectColors[projectId];
         if (!colors) {
-            console.log('❌ Aucune couleur trouvée pour le projet:', projectId);
             return;
         }
-        
-        console.log('🎨 Application des couleurs pour le projet:', projectId, colors);
-        console.log('🎨 Couleur primaire:', colors.primary);
-        console.log('🎨 Couleur de ligne:', colors.line);
         
         // Appliquer les couleurs aux éléments de la modale
         const modalContent = document.querySelector('.modal-content');
@@ -987,8 +935,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== SYSTÈME D\'ANIMATION DES STICKERS ===');
-    
     // Observer l'intersection de la section contact
     const contactSection = document.querySelector('#contact');
     
@@ -996,19 +942,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const contactObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    console.log('🎬 Section contact visible, lancement des animations des stickers');
-                    
                     // Ajouter la classe pour déclencher les animations
                     contactSection.classList.add('stickers-animate');
-                    
-                    console.log('✅ Animations des stickers activées');
                 } else {
-                    console.log('👋 Section contact non visible, réinitialisation des animations');
-                    
                     // Retirer la classe pour réinitialiser les animations
                     contactSection.classList.remove('stickers-animate');
-                    
-                    console.log('🔄 Animations des stickers réinitialisées');
                 }
             });
         }, {
@@ -1017,11 +955,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         contactObserver.observe(contactSection);
-        console.log('👁️ Observateur des stickers configuré');
-    } else {
-        console.log('❌ Section contact non trouvée');
     }
-    
-    console.log('✅ Système d\'animation des stickers activé');
-    console.log('=== FIN DU SYSTÈME DES STICKERS ===');
 });
