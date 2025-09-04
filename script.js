@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
             socialBg: 'rgba(170, 163, 127, 0.9)',
             socialBorder: 'rgba(170, 163, 127, 0.5)',
             buttonShadow: 'rgba(170, 163, 127, 0.4)',
+            scrollbarThumb: 'rgba(170, 163, 127, 0.6)',
+            scrollbarThumbHover: 'rgba(170, 163, 127, 0.8)',
+            scrollbarThumbActive: 'rgba(170, 163, 127, 1)',
+            scrollbarBorder: 'rgba(170, 163, 127, 0.3)',
+            scrollbarBorderHover: 'rgba(170, 163, 127, 0.5)',
             stickers: {
                 coeur: 'assets/sticker1-green.png',
                 cachet: 'assets/sticker2-green.png',
@@ -42,6 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
             socialBg: 'rgba(232, 168, 160, 0.9)',
             socialBorder: 'rgba(232, 168, 160, 0.5)',
             buttonShadow: 'rgba(232, 168, 160, 0.4)',
+            scrollbarThumb: 'rgba(232, 168, 160, 0.6)',
+            scrollbarThumbHover: 'rgba(232, 168, 160, 0.8)',
+            scrollbarThumbActive: 'rgba(232, 168, 160, 1)',
+            scrollbarBorder: 'rgba(232, 168, 160, 0.3)',
+            scrollbarBorderHover: 'rgba(232, 168, 160, 0.5)',
             stickers: {
                 coeur: 'assets/sr.png',
                 cachet: 'assets/sticker7.png',
@@ -65,6 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
             socialBg: 'rgba(181, 178, 234, 0.9)',
             socialBorder: 'rgba(181, 178, 234, 0.5)',
             buttonShadow: 'rgba(181, 178, 234, 0.4)',
+            scrollbarThumb: 'rgba(181, 178, 234, 0.6)',
+            scrollbarThumbHover: 'rgba(181, 178, 234, 0.8)',
+            scrollbarThumbActive: 'rgba(181, 178, 234, 1)',
+            scrollbarBorder: 'rgba(181, 178, 234, 0.3)',
+            scrollbarBorderHover: 'rgba(181, 178, 234, 0.5)',
             stickers: {
                 coeur: 'assets/sticker1-violet.png',
                 cachet: 'assets/sticker2-violet.png',
@@ -358,6 +373,32 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.setProperty('--clr-projects-intro', theme.projectsIntro);
         document.documentElement.style.setProperty('--clr-accent-strong', theme.contactIntro);
         
+        // Appliquer les couleurs de scrollbar des projets
+        const projectsScrollbarStyle = document.createElement('style');
+        projectsScrollbarStyle.id = 'projects-scrollbar-style';
+        projectsScrollbarStyle.textContent = `
+            .projects-cover::-webkit-scrollbar-thumb {
+                background: ${theme.scrollbarThumb} !important;
+                border-color: ${theme.scrollbarBorder} !important;
+            }
+            .projects-cover::-webkit-scrollbar-thumb:hover {
+                background: ${theme.scrollbarThumbHover} !important;
+                border-color: ${theme.scrollbarBorderHover} !important;
+            }
+            .projects-cover::-webkit-scrollbar-thumb:active {
+                background: ${theme.scrollbarThumbActive} !important;
+            }
+            .projects-cover {
+                scrollbar-color: ${theme.scrollbarThumb} transparent !important;
+            }
+        `;
+        
+        // Supprimer l'ancien style s'il existe
+        const oldProjectsScrollbarStyle = document.querySelector('#projects-scrollbar-style');
+        if (oldProjectsScrollbarStyle) oldProjectsScrollbarStyle.remove();
+        
+        document.head.appendChild(projectsScrollbarStyle);
+        
         // Mettre à jour l'état actif des boutons
         colorButtons.forEach(btn => {
             btn.classList.remove('active');
@@ -640,12 +681,149 @@ document.addEventListener('DOMContentLoaded', function() {
         
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+        
+        // Lancer l'animation d'ouverture
+        animateMaquetteModalOpen();
     }
     
     function closeMaquetteModal() {
+        // Lancer l'animation de fermeture
+        animateMaquetteModalClose(() => {
+            // Une fois l'animation terminée, masquer la modale
+            const modal = document.querySelector('.maquette-zoom-modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // =======================
+    // Animation fluide de la modale de zoom des maquettes
+    // =======================
+    
+    function animateMaquetteModalOpen() {
         const modal = document.querySelector('.maquette-zoom-modal');
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
+        const content = modal.querySelector('.maquette-zoom-content');
+        const img = modal.querySelector('.maquette-zoom-img');
+        
+        if (!modal || !content || !img) return;
+        
+        // État initial - simple et élégant
+        content.style.transform = 'scale(0.8) translateY(40px)';
+        content.style.opacity = '0';
+        content.style.filter = 'blur(2px)';
+        
+        modal.style.backdropFilter = 'blur(0px)';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        
+        // Animation fluide
+        let startTime = null;
+        const duration = 450; // Légèrement plus long que les modales de projets
+        
+        function animate(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Courbe d'easing simple et élégante
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            
+            // Animation du contenu
+            const scale = 0.8 + (0.2 * easeOut);
+            const translateY = 40 - (40 * easeOut);
+            const opacity = easeOut;
+            const blur = 2 - (2 * easeOut);
+            
+            content.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            content.style.opacity = opacity;
+            content.style.filter = `blur(${blur}px)`;
+            
+            // Animation de l'arrière-plan
+            const backdropBlur = 8 * easeOut;
+            const bgOpacity = 0.1 + (0.8 * easeOut);
+            modal.style.backdropFilter = `blur(${backdropBlur}px)`;
+            modal.style.backgroundColor = `rgba(0, 0, 0, ${bgOpacity})`;
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Animation terminée, nettoyer les styles
+                content.style.transform = '';
+                content.style.opacity = '';
+                content.style.filter = '';
+                modal.style.backdropFilter = '';
+                modal.style.backgroundColor = '';
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // =======================
+    // Animation de fermeture de la modale de zoom des maquettes
+    // =======================
+    
+    function animateMaquetteModalClose(callback) {
+        const modal = document.querySelector('.maquette-zoom-modal');
+        const content = modal.querySelector('.maquette-zoom-content');
+        
+        if (!modal || !content) {
+            // Si les éléments n'existent pas, exécuter le callback immédiatement
+            if (callback) callback();
+            return;
+        }
+        
+        // État initial - partir de l'état final de l'ouverture
+        content.style.transform = 'scale(1) translateY(0px)';
+        content.style.opacity = '1';
+        content.style.filter = 'blur(0px)';
+        
+        modal.style.backdropFilter = 'blur(8px)';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        
+        // Animation de fermeture (inverse de l'ouverture)
+        let startTime = null;
+        const duration = 350; // Légèrement plus rapide que l'ouverture
+        
+        function animate(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Courbe d'easing pour la fermeture (plus rapide au début)
+            const easeIn = Math.pow(progress, 2);
+            
+            // Animation du contenu (inverse de l'ouverture)
+            const scale = 1 - (0.2 * easeIn); // De 1 à 0.8
+            const translateY = 0 + (40 * easeIn); // De 0 à 40px
+            const opacity = 1 - easeIn; // De 1 à 0
+            const blur = 0 + (2 * easeIn); // De 0 à 2px
+            
+            content.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            content.style.opacity = opacity;
+            content.style.filter = `blur(${blur}px)`;
+            
+            // Animation de l'arrière-plan (inverse de l'ouverture)
+            const backdropBlur = 8 - (8 * easeIn); // De 8 à 0
+            const bgOpacity = 0.9 - (0.8 * easeIn); // De 0.9 à 0.1
+            modal.style.backdropFilter = `blur(${backdropBlur}px)`;
+            modal.style.backgroundColor = `rgba(0, 0, 0, ${bgOpacity})`;
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Animation terminée, nettoyer les styles et exécuter le callback
+                content.style.transform = '';
+                content.style.opacity = '';
+                content.style.filter = '';
+                modal.style.backdropFilter = '';
+                modal.style.backgroundColor = '';
+                
+                // Exécuter le callback pour continuer la fermeture
+                if (callback) callback();
+            }
+        }
+        
+        requestAnimationFrame(animate);
     }
     
     // Fonction pour empêcher le scroll
