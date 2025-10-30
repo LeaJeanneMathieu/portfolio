@@ -604,13 +604,13 @@ document.addEventListener('DOMContentLoaded', function() {
             line: '#976730'
         },
         '4': {
-            primary: '#001A4E',      // Bleu foncé pour NovaTech
-            secondary: '#1A2B6B',    // Bleu moyen
-            accent: '#000B2E',       // Bleu très foncé
-            background: 'rgba(0, 26, 78, 0.25)',
-            modalBg: 'rgba(0, 26, 78, 0.15)',
-            scrollbar: '#001A4E',
-            line: '#001A4E'
+            primary: '#C49A6C',      // Doré doux pour Eclat Divin
+            secondary: '#E6D8C8',    // Beige clair
+            accent: '#8B5E34',       // Doré plus profond
+            background: 'rgba(196, 154, 108, 0.25)',
+            modalBg: 'rgba(196, 154, 108, 0.15)',
+            scrollbar: '#C49A6C',
+            line: '#C49A6C'
         }
     };
     
@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (imgSrc.includes('projet1')) projectId = '1';
                 else if (imgSrc.includes('projet2')) projectId = '2';
                 else if (imgSrc.includes('projet3')) projectId = '3';
-                else if (imgSrc.includes('projet4')) projectId = '4';
+                else if (imgSrc.includes('projet4') || imgSrc.includes('maquette-eclat')) projectId = '4';
                 
                 openMaquetteModal(imgSrc, projectId);
             });
