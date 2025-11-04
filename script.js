@@ -586,6 +586,15 @@ document.addEventListener('DOMContentLoaded', function() {
             line: '#B8C5D1'
         },
         '2': {
+            primary: '#C49A6C',      // Doré doux pour Eclat Divin
+            secondary: '#E6D8C8',    // Beige clair
+            accent: '#8B5E34',       // Doré plus profond
+            background: 'rgba(196, 154, 108, 0.25)',
+            modalBg: 'rgba(196, 154, 108, 0.15)',
+            scrollbar: '#C49A6C',
+            line: '#C49A6C'
+        },
+        '3': {
             primary: '#52603A',      // Vert foncé pour GreenWave
             secondary: '#7A8A5A',    // Vert moyen
             accent: '#3A4A2A',       // Vert très foncé
@@ -594,23 +603,14 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollbar: '#52603A',
             line: '#52603A'
         },
-        '3': {
-            primary: '#976730',      // Marron doré pour Luxuria
+        '4': {
+            primary: '#976730',      // Marron doré pour Luxuria Event
             secondary: '#B8863A',    // Marron doré plus clair
             accent: '#6B4A20',       // Marron doré foncé
             background: 'rgba(151, 103, 48, 0.25)',
             modalBg: 'rgba(151, 103, 48, 0.15)',
             scrollbar: '#976730',
             line: '#976730'
-        },
-        '4': {
-            primary: '#C49A6C',      // Doré doux pour Eclat Divin
-            secondary: '#E6D8C8',    // Beige clair
-            accent: '#8B5E34',       // Doré plus profond
-            background: 'rgba(196, 154, 108, 0.25)',
-            modalBg: 'rgba(196, 154, 108, 0.15)',
-            scrollbar: '#C49A6C',
-            line: '#C49A6C'
         }
     };
     
